@@ -5,7 +5,7 @@ function getCart() {
     if (!savedCart) {
         const newData = {
             items: [],
-            expires: Date.now() + 5000
+            expires: Date.now() + 10000
         }
         localStorage.setItem("cart", JSON.stringify(newData))
         return newData
@@ -14,7 +14,7 @@ function getCart() {
     if (Date.now() > data.expires) {
         const newData = {
             items: [],
-            expires: Date.now() + 5000
+            expires: Date.now() + 10000
         }
         localStorage.setItem("cart", JSON.stringify(newData))
         return newData
@@ -22,10 +22,10 @@ function getCart() {
     return data;
 }
 
-button.addEventListener("click", function() {
+if (button) {
+    button.addEventListener("click", function() {
 
     const cart = getCart();
-
     const name = button.dataset.name;
     const price = Number(button.dataset.price);
     const img = button.dataset.img;
@@ -45,3 +45,5 @@ button.addEventListener("click", function() {
 
     console.log(cart);
 });
+
+}

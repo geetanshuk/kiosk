@@ -6,9 +6,13 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
 
-@app.route("/burritos.html")
+@app.route("/burritos")
 def burrito():
     return render_template("burritos.html")
+
+@app.route("/cart")
+def cart():
+    return render_template("cart.html", cart = cart)
 
 @app.route("/product/<item>")
 def product(item):
