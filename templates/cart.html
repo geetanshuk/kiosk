@@ -165,7 +165,7 @@
 
 <header>
     <h1>My Store</h1>
-    <a href="index.html">Continue Shopping</a>
+    <a href="/">Continue Shopping</a>
 </header>
 
 <div class="container">
@@ -217,7 +217,7 @@
 
         let subtotal = 0;
 
-        cart.items.forEach(item => {
+        cart.items.forEach(item=> {
             const itemTotal = item.price * item.quantity;
             subtotal += itemTotal;
 
@@ -230,22 +230,22 @@
                     </div>
 
                     <div class="quantity">
-                        <button onclick="changeQuantity(${item.id}, -1)">
+                        <button onclick="changeQuantity('${item.id}', -1)">
                             −
                         </button>
 
                         <span>${item.quantity}</span>
 
-                        <button onclick="changeQuantity(${item.id}, 1)">
+                        <button onclick="changeQuantity('${item.id}', 1)">
                             +
                         </button>
                     </div>
 
                     <div class="price">
-                        $${itemTotal.toFixed(2)}
+                        $${item.price.toFixed(2)}
                     </div>
 
-                    <button class="remove" onclick="removeItem(${item.id})">
+                    <button class="remove" onclick="removeItem('${item.id}')">
                         Remove
                     </button>
 
@@ -261,7 +261,7 @@
     }
 
     function changeQuantity(id, change) {
-        const item = cart.find(item => item.id === id);
+        const item = cart.items.find(item => item.id === id);
 
         if (!item) return;
 
@@ -276,7 +276,7 @@
     }
 
     function removeItem(id) {
-        cart = cart.filter(item => item.id !== id);
+        cart = cart.items.filter(item => item.id !== id);
         displayCart();
     }
 

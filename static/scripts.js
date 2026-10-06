@@ -33,7 +33,9 @@ if (button) {
     const item = {
         name: name,
         price: price,
-        img: img
+        img: img,
+        id: crypto.randomUUID(),
+        quantity: 1
     };
 
     cart.items.push(item);
@@ -43,7 +45,7 @@ if (button) {
         expires: cart.expires
     }));
 
-    console.log(cart);
+    alert("Added to cart!")
 });
 
 }
