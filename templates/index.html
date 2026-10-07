@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Food Menu</title>
 
     <style>
@@ -19,19 +18,14 @@
         }
 
         /* LEFT NAVIGATION */
-
         .sidebar {
             position: fixed;
             left: 0;
             top: 0;
-
             width: 180px;
             height: 100vh;
-
             background-color: #222;
-
             padding: 30px 20px;
-
             display: flex;
             flex-direction: column;
         }
@@ -45,12 +39,9 @@
         .sidebar a {
             color: white;
             text-decoration: none;
-
             padding: 18px 15px;
             margin-bottom: 10px;
-
             font-size: 20px;
-
             border-radius: 8px;
         }
 
@@ -59,39 +50,28 @@
         }
 
 
-        /* BOTTOM CART NAVIGATION */
-
+        /* BOTTOM CART */
         .bottom-nav {
             position: fixed;
-
             bottom: 0;
             left: 180px;
             right: 0;
-
             height: 80px;
-
             background-color: white;
-
             display: flex;
             justify-content: flex-end;
             align-items: center;
-
             padding: 0 40px;
-
             box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
-
             z-index: 10;
         }
 
         .cart {
             text-decoration: none;
             color: #222;
-
             font-size: 20px;
             font-weight: bold;
-
             padding: 12px 25px;
-
             border-radius: 8px;
         }
 
@@ -101,12 +81,9 @@
 
 
         /* MAIN CONTENT */
-
         main {
             margin-left: 220px;
-
             padding: 60px;
-
             padding-bottom: 120px;
         }
 
@@ -121,29 +98,20 @@
 
 
         /* FOOD CARDS */
-
         .food-grid {
             display: grid;
-
             grid-template-columns: repeat(3, 1fr);
-
             gap: 30px;
-
             margin-top: 50px;
         }
 
         .food-card {
             background-color: white;
-
             border-radius: 15px;
-
             overflow: hidden;
-
             text-decoration: none;
             color: #222;
-
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-
             transition: transform 0.2s;
         }
 
@@ -154,16 +122,93 @@
         .food-card img {
             width: 100%;
             height: 250px;
-
             object-fit: cover;
         }
 
         .food-card h3 {
             font-size: 28px;
-
             padding: 20px;
-
             margin: 0;
+        }
+
+
+        /* =========================
+           MOBILE
+           ========================= */
+
+        @media (max-width: 600px) {
+
+            /* TOP NAVIGATION */
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                padding: 15px 10px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .sidebar h1 {
+                font-size: 22px;
+                margin: 0;
+            }
+
+            .sidebar a {
+                font-size: 14px;
+                padding: 8px 6px;
+                margin: 0;
+            }
+
+
+            /* MAIN CONTENT */
+            main {
+                margin-left: 0;
+                padding: 25px 15px 100px;
+            }
+
+            h2 {
+                font-size: 32px;
+                margin-top: 5px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+
+            /* ONE COLUMN ON PHONE */
+            .food-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin-top: 30px;
+            }
+
+            .food-card img {
+                height: 200px;
+            }
+
+            .food-card h3 {
+                font-size: 23px;
+                padding: 15px;
+            }
+
+
+            /* BOTTOM CART */
+            .bottom-nav {
+                left: 0;
+                height: 65px;
+                padding: 0 15px;
+                justify-content: center;
+            }
+
+            .cart {
+                width: 100%;
+                text-align: center;
+                font-size: 18px;
+                padding: 10px;
+            }
         }
     </style>
 </head>
@@ -171,18 +216,15 @@
 
 <body>
 
-    <!-- LEFT NAVIGATION -->
+    <!-- LEFT / TOP NAVIGATION -->
 
     <nav class="sidebar">
 
         <h1>MENU</h1>
 
         <a href="/">Home</a>
-
         <a href="/burritos">Burritos</a>
-
         <a href="pizza.html">Pizza</a>
-
         <a href="lunch.html">Lunch</a>
 
     </nav>
@@ -191,6 +233,7 @@
     <!-- MAIN CONTENT -->
 
     <main id="home">
+
         <h2>Welcome</h2>
 
         <p>
