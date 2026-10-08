@@ -26,43 +26,55 @@ function getCart() {
 
 if (button) {
     button.addEventListener("click", function() {
+        let quantity = Number(document.getElementById("quantity").value);
+        console.log(quantity)
 
-    const cart = getCart();
-    const name = button.dataset.name;
-    const price = Number(button.dataset.price);
-    const img = button.dataset.img;
+        const cart = getCart();
+        const name = button.dataset.name;
+        const price = Number(button.dataset.price);
+        const img = button.dataset.img;
 
-    const item = {
-        name: name,
-        price: price,
-        img: img,
-        id: crypto.randomUUID(),
-        quantity: 1
-    };
+        const item = {
+            name: name,
+            price: price,
+            img: img,
+            id: crypto.randomUUID(),
+            quantity: quantity
+        };
 
-    cart.items.push(item);
+        for (let i = 0; i < cart.items.length; i++) {
+            if (cart.items[i].name == item.name) {
+                const id = cart.items[i].id
+                const itemQuantity = cart.items[i].quantity
+                cart.items = cart.items.filter(item => item.id !== id);
+                item.quantity = quantity + itemQuantity
+            }
+        }
 
-    localStorage.setItem("cart", JSON.stringify({
-        items: cart.items,
-        expires: cart.expires
-    }));
+        cart.items.push(item);
 
-    alert("Added to cart!")
-    
-    let totalItems = 0
+        localStorage.setItem("cart", JSON.stringify({
+            items: cart.items,
+            expires: cart.expires
+        }));
 
-    for (let i = 0; i < cart.items.length; i++) {
-        totalItems += cart.items[i].quantity
-    }
+        alert("Added to cart!")
+        
+        let totalItems = 0
+        
 
-    console.log(cartCount)
-    
-    if (cartCount) {
-        cartCount.innerHTML = totalItems;
-        cartCount.style.display = "inline-flex";
-        cartCount.classList.remove("hidden");
-    }
+        for (let i = 0; i < cart.items.length; i++) {
+            totalItems += cart.items[i].quantity
+        }
 
-});
+        console.log(cartCount)
+        
+        if (cartCount) {
+            cartCount.innerHTML = totalItems;
+            cartCount.style.display = "inline-flex";
+            cartCount.classList.remove("hidden");
+        }
+
+    });
 
 }
