@@ -1,4 +1,6 @@
 const button = document.getElementById("add-cart");
+const cartCount = document.querySelector(".cart-count");
+
 
 function getCart() {
     let savedCart = localStorage.getItem("cart")
@@ -46,6 +48,21 @@ if (button) {
     }));
 
     alert("Added to cart!")
+    
+    let totalItems = 0
+
+    for (let i = 0; i < cart.items.length; i++) {
+        totalItems += cart.items[i].quantity
+    }
+
+    console.log(cartCount)
+    
+    if (cartCount) {
+        cartCount.innerHTML = totalItems;
+        cartCount.style.display = "inline-flex";
+        cartCount.classList.remove("hidden");
+    }
+
 });
 
 }

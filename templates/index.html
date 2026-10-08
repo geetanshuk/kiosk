@@ -288,13 +288,15 @@
 
     <!-- BOTTOM CART -->
 
-    <nav class="bottom-nav">
+    <nav class="bottom-nav" id="bottom-nav">
 
         <a href="/cart" class="cart">
-            🛒 Cart
+            🛒 Cart<span class="cart-count"></span>
         </a>
 
     </nav>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
 
 </body>
 
